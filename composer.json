@@ -1,6 +1,8 @@
 {
     "name": "indigo-soft/indigo-erp-stock",
+    "type": "fuel-package",
     "description": "Indigo Stock management for Indigo ERP and Webshop",
+    "homepage": "http://github.com/indigo-soft",
     "license": "MIT",
     "authors": [
         {
@@ -10,5 +12,8 @@
     ],
     "require": {
         "indigo-soft/indigo": "dev-master"
+    },
+    "extra": {
+        "installer-name": "erp-stock"
     }
 }
