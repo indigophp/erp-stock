@@ -1,0 +1,14 @@
+{
+    "name": "indigo-soft/indigo-erp-stock",
+    "description": "Indigo Stock management for Indigo ERP and Webshop",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Márk Sági-Kazár",
+            "email": "mark.sagikazar@gmail.com"
+        }
+    ],
+    "require": {
+        "indigo-soft/indigo": "dev-master"
+    }
+}
