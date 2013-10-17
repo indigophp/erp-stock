@@ -22,11 +22,7 @@ class Model_Product extends \Orm\Model_Temporal
 			'model_to'       => 'Model_Product_Meta',
 			'cascade_delete' => true,
 		),
-		'order_product',
-		'prices' => array(
-			'model_to'       => 'Model_Price',
-			'cascade_delete' => true,
-		),
+		// 'order_product',
 	);
 
 	protected static $_observers = array(
@@ -76,7 +72,7 @@ class Model_Product extends \Orm\Model_Temporal
 				),
 			);
 
-			static::$has_many['prices'] = array(
+			static::$_has_many['prices'] = array(
 				'model_to'       => 'Model_Price',
 				'cascade_delete' => true,
 			);
