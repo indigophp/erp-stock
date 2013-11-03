@@ -6,7 +6,7 @@ class Model_Product extends \Orm\Model_Temporal
 {
 	protected static $_belongs_to = array(
 		'category',
-		'manufacturer',
+		// 'manufacturer',
 		//'type',
 	);
 
@@ -32,8 +32,6 @@ class Model_Product extends \Orm\Model_Temporal
 		),
 	);
 
-	protected static $_has_one = array();
-
 	protected static $_properties = array(
 		'id',
 		'temporal_start',
@@ -51,31 +49,4 @@ class Model_Product extends \Orm\Model_Temporal
 	);
 
 	protected static $_table_name = 'products';
-
-	public static function _init()
-	{
-		if (\Package::loaded('erp-stock'))
-		{
-			$priceSubquery = \DB::select('price.id')
-				->from(array(Model_Price::table(), 'price'))
-				->where('price.product_id', '=', \DB::expr(\DB::quote_identifier('id')))
-				->where('price.available', 1)
-				->order_by('price.price')
-				->limit(1)
-				->compile();
-
-			static::$_has_one['price'] = array(
-				'model_to'       => 'Model_Price',
-				'cascade_delete' => true,
-				'where'          => array(
-					array('id', '=', \DB::expr($priceSubquery))
-				),
-			);
-
-			static::$_has_many['prices'] = array(
-				'model_to'       => 'Model_Price',
-				'cascade_delete' => true,
-			);
-		}
-	}
 }
